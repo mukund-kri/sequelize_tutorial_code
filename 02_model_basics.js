@@ -16,7 +16,7 @@ const sequelize = new Sequelize({
 // The following is the syntax for defining a model:
 // - we use the `sequelize.define` method to define a model
 // - the first argument is the name of the model
-// - it has 3 fields (which currespond to the columns in the table) title, body, answer
+// - it has 3 fields (which corresponds to the columns in the table) title, body, answer
 // - the type of each field also HAS to be specified
 // - the fields also allow for column options, such as `allowNull` and `defaultValue`
 const Question = sequelize.define('Question', {
