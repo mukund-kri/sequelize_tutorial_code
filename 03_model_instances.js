@@ -4,7 +4,7 @@
  */
 
 // Imports
-const Sequelize = require('sequelize');
+import Sequelize from 'sequelize';
 
 // Connect to a sqlite database.
 const sequelize = new Sequelize({
@@ -40,31 +40,32 @@ let question = Question.build({
 console.log(question);
 
 // Save the question to the database
-question.save()
-    .then(() => console.log('Question saved successfully'))
-    .catch(err => console.log('Error saving question:', err));
+await question.save();
 
 // The .create method is a shortcut for the above two steps
-Question.create({
+let question2 = await Question.create({
     title: 'Capital of Italy',
     body: 'What is the capital of Italy?',
     answer: 'Rome'
 })
-    .then((q2) => {
-        console.log('Question saved successfully');
-        console.log(q2);
-    })
-    .catch(err => console.log('Error saving question:', err));
 
+// Get all the rows from the database --------------------------------------------------
+Question.findAll()
+    .then(questions => {
+        console.log('All questions:', JSON.stringify(questions, null, 4));
+    })
+    .catch(err => console.log('Error getting questions:', err));
 
 // Updating a row ----------------------------------------------------------------------
 question.answer = 'Pariz';
 // At this point, the question is not updated in the database yet.
-question.save()
-    .then(() => console.log('Question updated successfully'))
-    .catch(err => console.log('Error updating question:', err));
+await question.save();
+
+// The .update method is a shortcut for the above two steps
+await question2.update({
+    answer: 'Roma'
+});
 
 // Deleting a row ----------------------------------------------------------------------
-question.destroy()
-    .then(() => console.log('Question deleted successfully'))
-    .catch(err => console.log('Error deleting question:', err));
+await question.destroy();
+await question2.destroy();
