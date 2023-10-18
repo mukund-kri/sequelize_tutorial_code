@@ -1,6 +1,9 @@
 /*
  * Here we explore how to `read` and `write` data to the database.
  * We will use the `Question` model we created in the previous snippet.
+ * 
+ * How to run this example:
+ * > node 03_model_instances.js
  */
 
 // Imports

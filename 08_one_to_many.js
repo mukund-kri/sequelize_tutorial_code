@@ -83,6 +83,57 @@ async function addData() {
     await question.setOptions(options);
 }
 
+
+// Querying - Lazy loading
+async function query() {
+    let question = await Question.findOne({
+        where: {
+            title: 'Capital of France'
+        }
+    });
+
+    // print the question
+    console.log('Question:', JSON.stringify(question, null, 4));
+
+    // Note the associated options are not retrieved by default. We need to explicitly
+    // ask for them.
+    let options = await question.getOptions();
+    console.log('Options:', JSON.stringify(options, null, 4));
+
+    // We can also traverse the relationship in the other direction.
+    let option = await Option.findOne({
+        where: {
+            title: 'Paris'
+        }
+    });
+    // Now let's get the question associated with the option
+    let question2 = await option.getQuestion();
+    console.log('Question associated with Paris:', JSON.stringify(question2, null, 4));
+
+};
+
+// Querying - Eager loading
+async function eager() {
+    let question = await Question.findOne({
+        where: {
+            title: 'Capital of France'
+        },
+        include: [Option]
+    });
+
+    // print the question
+    console.log('Question:', JSON.stringify(question, null, 4));
+
+    // Traverse the relationship in the other direction.
+    let option = await Option.findOne({
+        where: {
+            title: 'Paris'
+        },
+        include: [Question]
+    });
+    console.log('Option:', JSON.stringify(option, null, 4));
+}
+
 // command line options to ease running the code
 if (process.argv.includes('--create')) {
     await sequelize.sync({
@@ -93,4 +144,8 @@ if (process.argv.includes('--create')) {
     await sequelize.drop();
 } else if (process.argv.includes('--add')) {
     await addData();
+} else if (process.argv.includes('--query')) {
+    await query();
+} else if (process.argv.includes('--eager')) {
+    await eager();
 }

@@ -1,3 +1,10 @@
+/*
+ * This file contains examples of basic ordering, grouping and functions in Sequelize.
+ * 
+ * How to run this example:
+ * > node 06_ordering_grouping_functions.js
+ */
+
 // Imports
 import Sequelize from 'sequelize';
 

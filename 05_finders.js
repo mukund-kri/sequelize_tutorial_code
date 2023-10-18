@@ -1,3 +1,12 @@
+/*
+ * Finders, other than `findAll`.
+ * Here we will see how to use `findByPk`, `findOne`, `findOrCreate` finders which are
+ * lesser used alternatives to `findAll`.
+ * 
+ * How to run this example:
+ * > node 05_finders.js
+ */
+
 // Imports
 import Sequelize from 'sequelize';
 

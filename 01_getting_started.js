@@ -3,6 +3,9 @@
  * connection by logging the result to the console.
  * That's it! in subsequent examples we will see how to create tables, insert data,
  * and query data.
+ * 
+ * How to run this example:
+ * > node 01_getting_started.js
  */
 
 // Imports

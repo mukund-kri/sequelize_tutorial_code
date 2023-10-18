@@ -1,5 +1,8 @@
 /*
  * Let's explore querying with Sequelize a little more.
+ * 
+ * How to run this code:
+ * > node 04_querying.js <options>
  */
 
 

@@ -1,6 +1,12 @@
 /*
  * Now we start exploring the model. We will start with the basics.
  * We will create a model and see how the model mirrors the database table.
+ * 
+ * How to run this example:
+ * > node 02_model_basics.js <options>
+ * Where <options> is one of:
+ * `create` :: Create the table in the database.
+ * `drop`   :: Drop the table from the database. Helps with cleanup between runs.
  */
 
 // Imports

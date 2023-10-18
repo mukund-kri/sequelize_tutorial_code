@@ -1,6 +1,15 @@
 /*
  * Let's explore the simplest type of relationship between two models: a one-to-one
  * relationship.
+ * 
+ * How to run this code:
+ * > node 07_one_to_one.js <options>
+ *  Where <options> is one of:
+ * `--create` :: Create the tables in the database.
+ * `--delete` :: Drop the tables from the database. Helps with cleanup between runs.
+ * `--run`    :: Run the example.
+ * `--query`  :: Demo how instances are queried.
+ * `--eager`  :: Demo eager loading.
  */
 
 // Import Sequelize
