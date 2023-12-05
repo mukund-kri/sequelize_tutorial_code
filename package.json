@@ -12,5 +12,8 @@
     "sequelize": "^6.33.0",
     "sqlite3": "^5.1.6"
   },
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "sequelize-cli": "^6.6.2"
+  }
 }
